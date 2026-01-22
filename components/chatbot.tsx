@@ -467,35 +467,35 @@ export function Chatbot() {
       {/* Enhanced Chat Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-foreground to-foreground/90 text-background shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-foreground/30 ${
+        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-br from-foreground to-foreground/90 text-background shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-foreground/30 active:scale-95 ${
           isOpen ? "scale-0 opacity-0 pointer-events-none" : "scale-100 opacity-100"
         }`}
       >
-        <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7 transition-transform group-hover:scale-125" />
-        <span className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center">
+        <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 transition-transform group-hover:scale-125" />
+        <span className="absolute -right-0.5 -top-0.5 sm:-right-1 sm:-top-1 flex h-4 w-4 sm:h-5 sm:w-5 items-center justify-center">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
-          <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500"></span>
+          <span className="relative inline-flex h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-green-500"></span>
         </span>
       </button>
 
       {/* Enhanced Chat Window */}
       <div
-        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex h-[calc(100vh-2rem)] sm:h-[700px] w-[calc(100vw-2rem)] sm:w-[450px] max-w-[calc(100vw-2rem)] sm:max-w-[450px] max-h-[calc(100vh-2rem)] sm:max-h-[700px] flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-border/50 bg-background shadow-2xl transition-all duration-500 ${
+        className={`fixed inset-4 sm:inset-auto sm:bottom-6 sm:right-6 z-50 flex h-[calc(100vh-2rem)] sm:h-[700px] w-[calc(100vw-2rem)] sm:w-[450px] max-w-[calc(100vw-2rem)] sm:max-w-[450px] max-h-[calc(100vh-2rem)] sm:max-h-[700px] flex-col overflow-hidden rounded-xl sm:rounded-2xl md:rounded-3xl border border-border/50 bg-background shadow-2xl transition-all duration-500 ${
           isOpen ? "translate-y-0 scale-100 opacity-100" : "pointer-events-none translate-y-8 scale-95 opacity-0"
         }`}
       >
         {/* Enhanced Header */}
-        <div className="relative flex items-center justify-between bg-gradient-to-r from-foreground to-foreground/90 px-6 py-5 shadow-lg">
-          <div className="flex items-center gap-4">
-            <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-background shadow-md">
-              <Bot className="h-6 w-6 text-foreground" />
-              <span className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full border-2 border-foreground bg-green-500 shadow-lg"></span>
+        <div className="relative flex items-center justify-between bg-gradient-to-r from-foreground to-foreground/90 px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 shadow-lg">
+          <div className="flex items-center gap-2.5 sm:gap-3 md:gap-4 min-w-0 flex-1">
+            <div className="relative flex h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl bg-background shadow-md">
+              <Bot className="h-5 w-5 sm:h-5.5 sm:w-5.5 md:h-6 md:w-6 text-foreground" />
+              <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 sm:h-3.5 sm:w-3.5 rounded-full border-2 border-foreground bg-green-500 shadow-lg"></span>
             </div>
-            <div>
-              <h3 className="font-bold text-background text-lg">{t.chatbot.title}</h3>
+            <div className="min-w-0 flex-1">
+              <h3 className="font-bold text-background text-base sm:text-lg truncate">{t.chatbot.title}</h3>
               <div className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse"></span>
-                <p className="text-sm text-background/70">{t.chatbot.online}</p>
+                <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-green-400 animate-pulse shrink-0"></span>
+                <p className="text-xs sm:text-sm text-background/70 truncate">{t.chatbot.online}</p>
               </div>
             </div>
           </div>
@@ -505,55 +505,55 @@ export function Chatbot() {
               setShowForm(false)
               setFormStep(0)
             }}
-            className="flex h-10 w-10 items-center justify-center rounded-xl bg-background/10 text-background/80 transition-all hover:bg-background/20 hover:text-background hover:scale-110"
+            className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-background/10 text-background/80 transition-all hover:bg-background/20 hover:text-background hover:scale-110 active:scale-95"
           >
-            <X className="h-5 w-5" />
+            <X className="h-4 w-4 sm:h-5 sm:w-5" />
           </button>
         </div>
 
         {/* Enhanced Messages Area */}
-        <div className="flex-1 overflow-y-auto p-5 bg-gradient-to-b from-secondary/20 to-background/30">
-          <div className="space-y-5">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-5 bg-gradient-to-b from-secondary/20 to-background/30">
+          <div className="space-y-3 sm:space-y-4 md:space-y-5">
             {messages.map((message) => (
-              <div key={message.id} className={`flex items-end gap-2.5 ${message.isBot ? "justify-start" : "justify-end"}`}>
+              <div key={message.id} className={`flex items-end gap-2 sm:gap-2.5 ${message.isBot ? "justify-start" : "justify-end"}`}>
                 {message.isBot && (
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-foreground shadow-lg">
-                    <Bot className="h-4 w-4 text-background" />
+                  <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-foreground shadow-lg">
+                    <Bot className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-background" />
                   </div>
                 )}
-                <div className="flex flex-col gap-2 max-w-[85%] sm:max-w-[75%]">
+                <div className="flex flex-col gap-1.5 sm:gap-2 max-w-[80%] sm:max-w-[75%]">
                   <div
-                    className={`rounded-2xl px-4 py-3 transition-all duration-300 ${
+                    className={`rounded-xl sm:rounded-2xl px-3 py-2 sm:px-4 sm:py-3 transition-all duration-300 ${
                       message.isBot
                         ? "rounded-bl-md bg-background border border-border/50 shadow-md hover:shadow-lg hover:border-border"
                         : "rounded-br-md bg-gradient-to-r from-foreground to-foreground/90 text-background shadow-md"
                     }`}
                   >
-                    <p className="whitespace-pre-line text-sm leading-relaxed">{formatMessage(message.content)}</p>
+                    <p className="whitespace-pre-line text-xs sm:text-sm leading-relaxed">{formatMessage(message.content)}</p>
                   </div>
                   {message.links && message.links.length > 0 && (
-                    <div className="flex flex-wrap gap-2 pl-1">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 pl-0.5 sm:pl-1">
                       {message.links.map((link, i) => (
                         <a
                           key={i}
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-full bg-foreground/10 px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:bg-foreground hover:text-background hover:shadow-md"
+                          className="inline-flex items-center gap-1 rounded-full bg-foreground/10 px-2.5 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-medium text-foreground transition-all hover:bg-foreground hover:text-background hover:shadow-md active:scale-95"
                         >
                           {link.label}
-                          <ExternalLink className="h-3 w-3" />
+                          <ExternalLink className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
                         </a>
                       ))}
                     </div>
                   )}
                   {message.suggestions && message.suggestions.length > 0 && (
-                    <div className="flex flex-wrap gap-2 pl-1">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2 pl-0.5 sm:pl-1">
                       {message.suggestions.map((suggestion, i) => (
                         <button
                           key={i}
                           onClick={() => handleSuggestion(suggestion)}
-                          className="inline-flex items-center gap-1.5 rounded-full bg-secondary/60 px-3 py-1.5 text-xs font-medium text-foreground transition-all hover:bg-foreground hover:text-background hover:shadow-md border border-border/50"
+                          className="inline-flex items-center gap-1 rounded-full bg-secondary/60 px-2.5 py-1 sm:px-3 sm:py-1.5 text-[10px] sm:text-xs font-medium text-foreground transition-all hover:bg-foreground hover:text-background hover:shadow-md border border-border/50 active:scale-95"
                         >
                           {suggestion}
                         </button>
@@ -562,8 +562,8 @@ export function Chatbot() {
                   )}
                 </div>
                 {!message.isBot && (
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary shadow-md">
-                    <User className="h-4 w-4 text-foreground" />
+                  <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-secondary shadow-md">
+                    <User className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-foreground" />
                   </div>
                 )}
               </div>
@@ -571,29 +571,29 @@ export function Chatbot() {
 
             {/* Form Wizard */}
             {showForm && currentStep && (
-              <div className="bg-background border border-border/50 rounded-2xl p-4 shadow-lg">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2">
-                    <Sparkles className="h-4 w-4 text-foreground" />
-                    <span className="text-xs font-medium text-muted-foreground">
+              <div className="bg-background border border-border/50 rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-lg">
+                <div className="flex items-center justify-between mb-2.5 sm:mb-3 gap-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                    <Sparkles className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-foreground" />
+                    <span className="text-[10px] sm:text-xs font-medium text-muted-foreground whitespace-nowrap">
                       Step {formStep + 1} of {formSteps.length}
                     </span>
                   </div>
-                  <div className="flex-1 mx-3 h-1.5 bg-secondary rounded-full overflow-hidden">
+                  <div className="flex-1 mx-2 sm:mx-3 h-1.5 bg-secondary rounded-full overflow-hidden min-w-0">
                     <div
                       className="h-full bg-gradient-to-r from-foreground to-foreground/80 transition-all duration-300"
                       style={{ width: `${((formStep + 1) / formSteps.length) * 100}%` }}
                     />
                   </div>
                 </div>
-                <p className="text-sm font-medium text-foreground mb-3">{currentStep.label}</p>
+                <p className="text-xs sm:text-sm font-medium text-foreground mb-2.5 sm:mb-3">{currentStep.label}</p>
                 {currentStep.type === "text" || currentStep.type === "email" || currentStep.type === "tel" ? (
                   <Input
                     type={currentStep.type}
                     value={formData[currentStep.field]}
                     onChange={(e) => handleFormInput(currentStep.field, e.target.value)}
                     placeholder={currentStep.placeholder}
-                    className="mb-3"
+                    className="mb-2.5 sm:mb-3 text-sm"
                     onKeyDown={(e) => {
                       if (e.key === "Enter" && isStepValid()) {
                         handleFormNext()
@@ -607,14 +607,14 @@ export function Chatbot() {
                     onChange={(e) => handleFormInput(currentStep.field, e.target.value)}
                     placeholder={currentStep.placeholder}
                     rows={3}
-                    className="w-full px-3 py-2 rounded-lg border border-border bg-secondary/30 text-foreground placeholder-muted-foreground/60 focus:border-foreground focus:bg-background outline-none transition-all resize-none mb-3"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-border bg-secondary/30 text-foreground placeholder-muted-foreground/60 focus:border-foreground focus:bg-background outline-none transition-all resize-none mb-2.5 sm:mb-3"
                     autoFocus
                   />
                 ) : (
                   <select
                     value={formData[currentStep.field]}
                     onChange={(e) => handleFormInput(currentStep.field, e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg border border-border bg-secondary/30 text-foreground focus:border-foreground focus:bg-background outline-none transition-all mb-3"
+                    className="w-full px-3 py-2 text-sm rounded-lg border border-border bg-secondary/30 text-foreground focus:border-foreground focus:bg-background outline-none transition-all mb-2.5 sm:mb-3"
                     autoFocus
                   >
                     <option value="">Select an option...</option>
@@ -630,7 +630,7 @@ export function Chatbot() {
                     variant="outline"
                     size="sm"
                     onClick={handleFormBack}
-                    className="flex-1"
+                    className="flex-1 text-xs sm:text-sm h-9 sm:h-10"
                     disabled={isSubmitting}
                   >
                     {formStep === 0 ? t.chatbot.form.cancel : t.chatbot.form.back}
@@ -639,22 +639,23 @@ export function Chatbot() {
                     size="sm"
                     onClick={handleFormNext}
                     disabled={!isStepValid() || isSubmitting}
-                    className="flex-1 bg-gradient-to-r from-foreground to-foreground/90"
+                    className="flex-1 bg-gradient-to-r from-foreground to-foreground/90 text-xs sm:text-sm h-9 sm:h-10"
                   >
                     {isSubmitting ? (
                       <>
-                        <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                        {t.chatbot.form.submitting}
+                        <Loader2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5 sm:mr-2 animate-spin" />
+                        <span className="hidden sm:inline">{t.chatbot.form.submitting}</span>
+                        <span className="sm:hidden">...</span>
                       </>
                     ) : formStep === formSteps.length - 1 ? (
                       <>
-                        <CheckCircle className="h-4 w-4 mr-2" />
+                        <CheckCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                         {t.chatbot.form.submit}
                       </>
                     ) : (
                       <>
                         {t.chatbot.form.next}
-                        <ArrowRight className="h-4 w-4 ml-2" />
+                        <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 ml-1.5 sm:ml-2" />
                       </>
                     )}
                   </Button>
@@ -663,15 +664,15 @@ export function Chatbot() {
             )}
 
             {isTyping && (
-              <div className="flex items-end gap-2.5 justify-start">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-foreground shadow-lg">
-                  <Bot className="h-4 w-4 text-background" />
+              <div className="flex items-end gap-2 sm:gap-2.5 justify-start">
+                <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full bg-foreground shadow-lg">
+                  <Bot className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-background" />
                 </div>
-                <div className="rounded-2xl rounded-bl-md bg-background border border-border/50 px-4 py-3 shadow-md">
+                <div className="rounded-xl sm:rounded-2xl rounded-bl-md bg-background border border-border/50 px-3 py-2 sm:px-4 sm:py-3 shadow-md">
                   <div className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/40 [animation-delay:-0.3s]"></span>
-                    <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/40 [animation-delay:-0.15s]"></span>
-                    <span className="h-2 w-2 animate-bounce rounded-full bg-foreground/40"></span>
+                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 animate-bounce rounded-full bg-foreground/40 [animation-delay:-0.3s]"></span>
+                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 animate-bounce rounded-full bg-foreground/40 [animation-delay:-0.15s]"></span>
+                    <span className="h-1.5 w-1.5 sm:h-2 sm:w-2 animate-bounce rounded-full bg-foreground/40"></span>
                   </div>
                 </div>
               </div>
@@ -683,8 +684,8 @@ export function Chatbot() {
 
         {/* Enhanced Quick Actions */}
         {messages.length <= 1 && !showForm && (
-          <div className="border-t border-border bg-gradient-to-r from-background via-secondary/10 to-background px-3 sm:px-5 py-3 sm:py-4">
-            <p className="text-xs text-muted-foreground mb-2 sm:mb-3 font-medium uppercase tracking-wide">{t.chatbot.subtitle}</p>
+          <div className="border-t border-border bg-gradient-to-r from-background via-secondary/10 to-background px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4">
+            <p className="text-[10px] sm:text-xs text-muted-foreground mb-2 sm:mb-3 font-medium uppercase tracking-wide">{t.chatbot.subtitle}</p>
             <div className="grid grid-cols-2 gap-1.5 sm:gap-2">
               {(Object.keys(t.chatbot.quickActions) as Array<keyof typeof t.chatbot.quickActions>).map((action) => {
                 const Icon = quickActionIcons[action]
@@ -692,10 +693,10 @@ export function Chatbot() {
                   <button
                     key={action}
                     onClick={() => handleQuickAction(action)}
-                    className="flex items-center gap-1.5 sm:gap-2.5 rounded-xl border border-border bg-secondary/40 px-2 sm:px-4 py-2 sm:py-3 text-left text-xs sm:text-sm font-medium text-foreground transition-all duration-300 hover:bg-foreground hover:text-background hover:border-foreground hover:shadow-lg hover:scale-105"
+                    className="flex items-center gap-1 sm:gap-1.5 md:gap-2.5 rounded-lg sm:rounded-xl border border-border bg-secondary/40 px-2 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3 text-left text-[10px] sm:text-xs md:text-sm font-medium text-foreground transition-all duration-300 hover:bg-foreground hover:text-background hover:border-foreground hover:shadow-lg hover:scale-105 active:scale-95"
                   >
-                    <Icon className="h-4 w-4" />
-                    {t.chatbot.quickActions[action]}
+                    <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
+                    <span className="truncate">{t.chatbot.quickActions[action]}</span>
                   </button>
                 )
               })}
@@ -705,13 +706,13 @@ export function Chatbot() {
 
         {/* Enhanced Input */}
         {!showForm && (
-          <div className="border-t border-border bg-gradient-to-b from-background to-secondary/10 p-3 sm:p-4">
+          <div className="border-t border-border bg-gradient-to-b from-background to-secondary/10 p-2.5 sm:p-3 md:p-4">
             <form
               onSubmit={(e) => {
                 e.preventDefault()
                 handleSend()
               }}
-              className="flex items-center gap-2 sm:gap-3"
+              className="flex items-center gap-2 sm:gap-2.5 md:gap-3"
             >
               <input
                 ref={inputRef}
@@ -719,14 +720,14 @@ export function Chatbot() {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder={t.chatbot.placeholder}
-                className="flex-1 rounded-xl border border-border/50 bg-secondary/40 px-3 sm:px-4 py-2.5 sm:py-3.5 text-sm text-foreground placeholder-muted-foreground/60 outline-none transition-all focus:border-foreground focus:bg-background focus:ring-2 focus:ring-foreground/20"
+                className="flex-1 rounded-lg sm:rounded-xl border border-border/50 bg-secondary/40 px-2.5 sm:px-3 md:px-4 py-2 sm:py-2.5 md:py-3.5 text-xs sm:text-sm text-foreground placeholder-muted-foreground/60 outline-none transition-all focus:border-foreground focus:bg-background focus:ring-2 focus:ring-foreground/20"
               />
               <button
                 type="submit"
                 disabled={!inputValue.trim()}
-                className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-foreground to-foreground/90 text-background transition-all hover:scale-110 hover:shadow-lg disabled:opacity-40 disabled:hover:scale-100 shadow-md"
+                className="flex h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-foreground to-foreground/90 text-background transition-all hover:scale-110 hover:shadow-lg disabled:opacity-40 disabled:hover:scale-100 shadow-md active:scale-95"
               >
-                <Send className="h-4 w-4 sm:h-5 sm:w-5" />
+                <Send className="h-3.5 w-3.5 sm:h-4 sm:w-4 md:h-5 md:w-5" />
               </button>
             </form>
           </div>
