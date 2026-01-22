@@ -46,15 +46,15 @@ export function Footer() {
               </div>
               <span className="text-xl font-semibold text-foreground tracking-tight">Alpha Group</span>
             </div>
-            <p className="text-muted-foreground mb-8 max-w-xs leading-relaxed">{t.footer.description}</p>
-            <div className="flex gap-3">
+            <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-8 max-w-xs leading-relaxed">{t.footer.description}</p>
+            <div className="flex gap-2.5 sm:gap-3">
               {[Linkedin, Twitter, Globe].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
-                  className="w-10 h-10 rounded-full bg-secondary border border-border/50 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-secondary border border-border/50 flex items-center justify-center hover:bg-foreground hover:text-background transition-all duration-300"
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </a>
               ))}
             </div>
@@ -62,15 +62,15 @@ export function Footer() {
 
           {/* Companies */}
           <div>
-            <h4 className="font-semibold text-foreground mb-5 text-sm uppercase tracking-wider">
+            <h4 className="font-semibold text-foreground mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
               {t.footer.companiesTitle}
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5 sm:space-y-3">
               {footerLinks.companies.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-300 flex items-center gap-1 group"
+                    className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-300 flex items-center gap-1 group"
                   >
                     {link.name}
                     <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -82,15 +82,15 @@ export function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="font-semibold text-foreground mb-5 text-sm uppercase tracking-wider">
+            <h4 className="font-semibold text-foreground mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">
               {t.footer.resources}
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5 sm:space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-300"
                   >
                     {link.name}
                   </a>
@@ -101,13 +101,13 @@ export function Footer() {
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold text-foreground mb-5 text-sm uppercase tracking-wider">{t.footer.legal}</h4>
-            <ul className="space-y-3">
+            <h4 className="font-semibold text-foreground mb-4 sm:mb-5 text-xs sm:text-sm uppercase tracking-wider">{t.footer.legal}</h4>
+            <ul className="space-y-2.5 sm:space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-300"
+                    className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-300"
                   >
                     {link.name}
                   </a>

@@ -200,38 +200,38 @@ export function CompaniesShowcase() {
                   </Link>
 
                   {/* Content */}
-                  <div className="space-y-6 order-1 lg:order-2">
+                  <div className="space-y-4 sm:space-y-6 order-1 lg:order-2 px-2 sm:px-0">
                     <div>
                       <div
-                        className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${company.colorLight} mb-4`}
+                        className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full ${company.colorLight} mb-3 sm:mb-4`}
                       >
-                        <company.icon className={`w-4 h-4 ${company.color.replace("bg-", "text-")}`} />
-                        <span className={`text-xs font-medium ${company.color.replace("bg-", "text-")}`}>
+                        <company.icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${company.color.replace("bg-", "text-")}`} />
+                        <span className={`text-[10px] sm:text-xs font-medium ${company.color.replace("bg-", "text-")}`}>
                           {company.tagline}
                         </span>
                       </div>
-                      <h3 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">{company.name}</h3>
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground tracking-tight">{company.name}</h3>
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed text-lg font-light">{company.description}</p>
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed font-light">{company.description}</p>
 
-                    <div className="grid grid-cols-2 gap-3 pt-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-2">
                       {company.features.map((feature) => (
-                        <div key={feature} className="flex items-center gap-2.5">
+                        <div key={feature} className="flex items-center gap-2 sm:gap-2.5">
                           <div
-                            className={`w-5 h-5 rounded-full ${company.color} flex items-center justify-center flex-shrink-0`}
+                            className={`w-4 h-4 sm:w-5 sm:h-5 rounded-full ${company.color} flex items-center justify-center flex-shrink-0`}
                           >
-                            <Check className="w-3 h-3 text-white" />
+                            <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
                           </div>
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                          <span className="text-xs sm:text-sm text-muted-foreground">{feature}</span>
                         </div>
                       ))}
                     </div>
 
-                    <Link href={company.url} target="_blank" rel="noopener noreferrer">
-                      <Button className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-7 py-5 text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 group mt-4">
+                    <Link href={company.url} target="_blank" rel="noopener noreferrer" className="block mt-3 sm:mt-4">
+                      <Button className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-5 sm:px-7 py-4 sm:py-5 text-xs sm:text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 group w-full sm:w-auto">
                         {t.companies.viewProfile}
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="ml-2 w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
                   </div>

@@ -312,30 +312,24 @@ export function CompanyHierarchy() {
                     />
 
                     <div
-                      className={`relative bg-background border border-border/50 rounded-2xl p-6 sm:p-8 transition-all duration-500 ${
-                        isHovered ? "shadow-2xl -translate-y-2 border-accent/30 scale-105" : "shadow-lg"
+                      className={`relative bg-background border border-border/50 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-500 ${
+                        isHovered ? "shadow-2xl -translate-y-1 sm:-translate-y-2 border-accent/30 scale-[1.02] sm:scale-105" : "shadow-lg"
                       }`}
-                      style={{
-                        transform: isHovered
-                          ? "perspective(1000px) rotateX(-2deg) scale(1.02)"
-                          : "perspective(1000px) rotateX(0deg)",
-                        transformOrigin: "top",
-                      }}
                     >
                       {/* Icon with gradient background on hover */}
                       <div
-                        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-5 transition-all duration-500 ${
+                        className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 md:mb-5 transition-all duration-500 ${
                           isHovered ? `bg-gradient-to-br ${company.color} shadow-lg scale-110` : "bg-secondary"
                         }`}
                       >
                         <Icon
-                          className={`w-6 h-6 sm:w-7 sm:h-7 transition-colors duration-500 ${
+                          className={`w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-colors duration-500 ${
                             isHovered ? "text-white" : "text-muted-foreground"
                           }`}
                         />
                       </div>
 
-                      <h4 className="text-lg sm:text-xl font-semibold text-foreground mb-2 tracking-tight">
+                      <h4 className="text-base sm:text-lg md:text-xl font-semibold text-foreground mb-1.5 sm:mb-2 tracking-tight">
                         {company.name}
                       </h4>
                       <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{company.role}</p>
