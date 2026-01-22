@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Linkedin, Twitter, Globe, ArrowUpRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { getTranslations } from "@/lib/translations"
@@ -34,8 +35,14 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-foreground flex items-center justify-center shadow-lg">
-                <span className="text-background font-semibold text-lg">A</span>
+              <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-lg relative">
+                <Image
+                  src="/alphalogo.png"
+                  alt="Alpha Group Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-xl font-semibold text-foreground tracking-tight">Alpha Group</span>
             </div>

@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { Users, Wrench, HardHat } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
@@ -157,8 +158,14 @@ export function CompanyHierarchy() {
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="flex items-center gap-4 sm:gap-5">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-foreground flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform duration-500">
-                    <span className="text-background font-bold text-xl sm:text-2xl">A</span>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform duration-500 relative bg-background">
+                    <Image
+                      src="/alphalogo.png"
+                      alt="Alpha Group Logo"
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">Alpha Group</h3>
@@ -199,7 +206,7 @@ export function CompanyHierarchy() {
                   <stop offset="100%" style={{ stopColor: "#3b82f6", stopOpacity: 0.3 }} />
                 </radialGradient>
               </defs>
-
+              
               {arrowPaths.map((line, idx) => {
                 // Calculate arrow angle at end point
                 const dx = line.x2 - line.controlX
@@ -207,51 +214,51 @@ export function CompanyHierarchy() {
                 const angle = Math.atan2(dy, dx) * (180 / Math.PI)
 
                 return (
-                  <g key={idx}>
-                    {/* Glow background path */}
-                    <path
+                <g key={idx}>
+                  {/* Glow background path */}
+                  <path
                       d={`M ${line.x1} ${line.y1} Q ${line.controlX} ${line.controlY} ${line.x2} ${line.y2}`}
-                      stroke="#3b82f6"
+                    stroke="#3b82f6"
                       strokeWidth="12"
-                      fill="none"
+                    fill="none"
                       opacity="0.4"
-                      filter="url(#strongGlow)"
-                      strokeLinecap="round"
-                    />
-                    {/* Main glowing line */}
-                    <path
+                    filter="url(#strongGlow)"
+                    strokeLinecap="round"
+                  />
+                  {/* Main glowing line */}
+                  <path
                       d={`M ${line.x1} ${line.y1} Q ${line.controlX} ${line.controlY} ${line.x2} ${line.y2}`}
-                      stroke="url(#glowGradientStrong)"
-                      strokeWidth="4"
-                      fill="none"
-                      strokeLinecap="round"
+                    stroke="url(#glowGradientStrong)"
+                    strokeWidth="4"
+                    fill="none"
+                    strokeLinecap="round"
                       className="transition-all duration-500"
-                    />
-
+                  />
+                  
                     {/* Animated pulse point at control */}
-                    <circle
+                  <circle 
                       cx={line.controlX}
                       cy={line.controlY}
                       r="8"
                       fill="url(#pulseGradient)"
                       opacity="0.8"
-                      filter="url(#strongGlow)"
-                      style={{
+                    filter="url(#strongGlow)"
+                    style={{
                         animation: `pulse 2s ease-in-out infinite`,
                         animationDelay: `${idx * 0.3}s`,
-                      }}
-                    />
-
-                    {/* Outer glow ring */}
-                    <circle
+                    }}
+                  />
+                  
+                  {/* Outer glow ring */}
+                  <circle 
                       cx={line.controlX}
                       cy={line.controlY}
                       r="12"
-                      fill="none"
-                      stroke="#3b82f6"
+                    fill="none"
+                    stroke="#3b82f6"
                       strokeWidth="1.5"
                       opacity="0.6"
-                      style={{
+                    style={{
                         animation: `pulse-ring 2s ease-in-out infinite`,
                         animationDelay: `${idx * 0.3}s`,
                       }}

@@ -3,6 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ArrowUpRight } from "lucide-react"
 import { LanguageSwitcher } from "./language-switcher"
@@ -57,8 +58,15 @@ export function Navigation({ onGetStarted }: { onGetStarted?: () => void } = {})
         >
           {/* Logo */}
           <a href="#" className="flex items-center gap-1.5 sm:gap-2.5 pl-1 sm:pl-2 pr-2 sm:pr-4">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-foreground flex items-center justify-center">
-              <span className="text-background font-bold text-xs sm:text-sm">A</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg overflow-hidden flex items-center justify-center relative">
+              <Image
+                src="/alphalogo.png"
+                alt="Alpha Group Logo"
+                width={32}
+                height={32}
+                className="w-full h-full object-contain"
+                priority
+              />
             </div>
             <span className="text-xs sm:text-sm font-semibold text-foreground tracking-tight hidden sm:block">Alpha Group</span>
           </a>
