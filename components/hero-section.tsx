@@ -6,6 +6,7 @@ import { ArrowRight, Play, X } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { getTranslations } from "@/lib/translations"
 
+// Extract video ID from URL: https://youtu.be/W6PN5jVIYok
 const YOUTUBE_VIDEO_ID = "W6PN5jVIYok"
 
 export function HeroSection({ onGetStarted }: { onGetStarted?: () => void }) {
@@ -13,6 +14,7 @@ export function HeroSection({ onGetStarted }: { onGetStarted?: () => void }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [showVideo, setShowVideo] = useState(false)
   const [isHydrated, setIsHydrated] = useState(false)
+  const [videoError, setVideoError] = useState(false)
   const heroRef = useRef<HTMLSection>(null)
   const { language } = useLanguage()
   const t = getTranslations(language)
@@ -20,6 +22,24 @@ export function HeroSection({ onGetStarted }: { onGetStarted?: () => void }) {
   useEffect(() => {
     setIsVisible(true)
     setIsHydrated(true)
+    
+    // Check if YouTube video is available by testing thumbnail
+    const checkVideoAvailability = () => {
+      const img = new Image()
+      img.onload = () => {
+        // Thumbnail exists, video should be available
+        setVideoError(false)
+      }
+      img.onerror = () => {
+        // Thumbnail doesn't exist, video might not be available
+        setVideoError(true)
+      }
+      img.src = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`
+    }
+    
+    // Check after a delay to allow iframe to load first
+    const timeout = setTimeout(checkVideoAvailability, 3000)
+    return () => clearTimeout(timeout)
   }, [])
 
   useEffect(() => {
@@ -41,22 +61,36 @@ export function HeroSection({ onGetStarted }: { onGetStarted?: () => void }) {
       {/* YouTube Video Background - Continuously Playing */}
       {isHydrated && (
         <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <iframe
-            width="100%"
-            height="100%"
-            src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playlist=${YOUTUBE_VIDEO_ID}&start=0`}
-            title="Alpha Group Hero Video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen={false}
-            className="absolute top-0 left-0 w-full h-full"
-            style={{ 
-              pointerEvents: 'none',
-              transform: 'scale(1.1)',
-            }}
-          />
+          {/* Fallback Gradient Background - Always visible as backup */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 z-0">
+            <div className="absolute inset-0 bg-[url('/modern-city-skyline-at-night-with-blue-lights.jpg')] bg-cover bg-center opacity-30" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+          </div>
+          
+          {/* YouTube Video Background - Overlay on top if available */}
+          {!videoError && (
+            <div className="absolute inset-0 z-10">
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?si=R6EON2Msf_qkBiSQ&autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playlist=${YOUTUBE_VIDEO_ID}&start=0&playsinline=1`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen={false}
+                className="absolute top-0 left-0 w-full h-full"
+                style={{ 
+                  pointerEvents: 'none',
+                  transform: 'scale(1.1)',
+                }}
+                loading="eager"
+              />
+            </div>
+          )}
+          
           {/* Dark Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 z-30" />
         </div>
       )}
 
@@ -135,10 +169,11 @@ export function HeroSection({ onGetStarted }: { onGetStarted?: () => void }) {
               <iframe
                 width="100%"
                 height="100%"
-                src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1`}
-                title="Alpha Group Hero Video"
+                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?si=R6EON2Msf_qkBiSQ&autoplay=1`}
+                title="YouTube video player"
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
                 className="rounded-lg"
               />
