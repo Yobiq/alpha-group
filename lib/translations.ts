@@ -141,9 +141,9 @@ export const translations = {
         companies:
           "Alpha Group consists of three specialized companies:\n\n**GO-TEAM** - Staffing solutions for construction & industry\n**SWORD BV** - Technical engineering services\n**ALPHABouw** - Full-service construction\n\nWhich company would you like to learn more about?",
         goTeam:
-          "**GO-TEAM** is our staffing division, specializing in providing skilled temporary workers for construction and industrial sectors. We connect talented professionals with leading companies across the Netherlands and Belgium.\n\nVisit: https://v0-sword-bv-website-design.vercel.app/",
+          "**GO-TEAM** is our staffing division, specializing in providing skilled temporary workers for construction and industrial sectors. We connect talented professionals with leading companies across the Netherlands and Belgium.\n\nVisit: https://go-teamnl.nl",
         sword:
-          "**SWORD BV** delivers specialized technical services and engineering solutions for complex construction projects. From structural analysis to MEP installations, we ensure every detail meets the highest standards.\n\nVisit: https://v0-sword-bv-website.vercel.app/",
+          "**SWORD BV** delivers specialized technical services and engineering solutions for complex construction projects. From structural analysis to MEP installations, we ensure every detail meets the highest standards.\n\nVisit: https://swordbv.nl",
         alphaBouw:
           "**ALPHABouw** is our full-service construction company specializing in residential and commercial building projects. From new constructions to renovations, we deliver quality craftsmanship.\n\nVisit: https://v0-modern-website-design-zeta-three.vercel.app/",
         services:
@@ -253,9 +253,9 @@ export const translations = {
         companies:
           "Alpha Group bestaat uit drie gespecialiseerde bedrijven:\n\n**GO-TEAM** - Personeelsoplossingen voor bouw & industrie\n**SWORD BV** - Technische engineering diensten\n**ALPHABouw** - Full-service bouw\n\nOver welk bedrijf wilt u meer weten?",
         goTeam:
-          "**GO-TEAM** is onze personeelsdivisie, gespecialiseerd in het leveren van gekwalificeerde uitzendkrachten voor de bouw- en industriële sectoren. Wij verbinden professionals met toonaangevende bedrijven in Nederland en België.\n\nBezoek: https://v0-sword-bv-website-design.vercel.app/",
+          "**GO-TEAM** is onze personeelsdivisie, gespecialiseerd in het leveren van gekwalificeerde uitzendkrachten voor de bouw- en industriële sectoren. Wij verbinden professionals met toonaangevende bedrijven in Nederland en België.\n\nBezoek: https://go-teamnl.nl",
         sword:
-          "**SWORD BV** levert gespecialiseerde technische diensten en engineering oplossingen voor complexe bouwprojecten. Van constructieanalyse tot installaties, elk detail voldoet aan de hoogste normen.\n\nBezoek: https://v0-sword-bv-website.vercel.app/",
+          "**SWORD BV** levert gespecialiseerde technische diensten en engineering oplossingen voor complexe bouwprojecten. Van constructieanalyse tot installaties, elk detail voldoet aan de hoogste normen.\n\nBezoek: https://swordbv.nl",
         alphaBouw:
           "**ALPHABouw** is ons full-service bouwbedrijf gespecialiseerd in residentiële en commerciële projecten. Van nieuwbouw tot renovaties, wij leveren kwaliteitsvakmanschap.\n\nBezoek: https://v0-modern-website-design-zeta-three.vercel.app/",
         services:
@@ -409,9 +409,9 @@ export const translations = {
         companies:
           "Alpha Group consta de tres empresas especializadas:\n\n**GO-TEAM** - Soluciones de personal para construcción e industria\n**SWORD BV** - Servicios de ingeniería técnica\n**ALPHABouw** - Construcción integral\n\n¿Sobre cuál empresa te gustaría saber más?",
         goTeam:
-          "**GO-TEAM** es nuestra división de personal, especializada en proporcionar trabajadores calificados para los sectores de construcción e industrial. Conectamos profesionales con empresas líderes en los Países Bajos y Bélgica.\n\nVisita: https://v0-sword-bv-website-design.vercel.app/",
+          "**GO-TEAM** es nuestra división de personal, especializada en proporcionar trabajadores calificados para los sectores de construcción e industrial. Conectamos profesionales con empresas líderes en los Países Bajos y Bélgica.\n\nVisita: https://go-teamnl.nl",
         sword:
-          "**SWORD BV** ofrece servicios técnicos especializados y soluciones de ingeniería para proyectos de construcción complejos. Desde análisis estructural hasta instalaciones, cada detalle cumple los más altos estándares.\n\nVisita: https://v0-sword-bv-website.vercel.app/",
+          "**SWORD BV** ofrece servicios técnicos especializados y soluciones de ingeniería para proyectos de construcción complejos. Desde análisis estructural hasta instalaciones, cada detalle cumple los más altos estándares.\n\nVisita: https://swordbv.nl",
         alphaBouw:
           "**ALPHABouw** es nuestra empresa de construcción integral especializada en proyectos residenciales y comerciales. Desde nuevas construcciones hasta renovaciones, entregamos artesanía de calidad.\n\nVisita: https://v0-modern-website-design-zeta-three.vercel.app/",
         services:
