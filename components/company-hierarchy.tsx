@@ -8,8 +8,8 @@ import { useLanguage } from "@/lib/language-context"
 import { getTranslations } from "@/lib/translations"
 
 const companyUrls = {
-  goTeam: "https://v0-sword-bv-website-design.vercel.app/",
-  sword: "https://v0-sword-bv-website.vercel.app/",
+  goTeam: "https://go-teamnl.nl",
+  sword: "https://swordbv.nl",
   alphaBouw: "https://v0-modern-website-design-zeta-three.vercel.app/",
 }
 
