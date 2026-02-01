@@ -10,7 +10,7 @@ import { getTranslations } from "@/lib/translations"
 const companyUrls = {
   goTeam: "https://go-teamnl.nl",
   sword: "https://swordbv.nl",
-  alphaBouw: "https://v0-modern-website-design-zeta-three.vercel.app/",
+  alphaBouw: "https://alphabow.vercel.app/",
 }
 
 export function CompanyHierarchy() {
