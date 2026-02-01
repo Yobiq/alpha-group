@@ -15,6 +15,7 @@ export function HeroSection({ onGetStarted }: { onGetStarted?: () => void }) {
   const [showVideo, setShowVideo] = useState(false)
   const [isHydrated, setIsHydrated] = useState(false)
   const [videoError, setVideoError] = useState(false)
+  const [videoLoaded, setVideoLoaded] = useState(false)
   const heroRef = useRef<HTMLSection>(null)
   const { language } = useLanguage()
   const t = getTranslations(language)
@@ -70,6 +71,10 @@ export function HeroSection({ onGetStarted }: { onGetStarted?: () => void }) {
           {/* YouTube Video Background - Overlay on top if available */}
           {!videoError && (
             <div className="absolute inset-0 z-10">
+              {/* Skeleton Loading */}
+              {!videoLoaded && (
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 animate-pulse z-10" />
+              )}
               <iframe
                 width="100%"
                 height="100%"
@@ -83,7 +88,10 @@ export function HeroSection({ onGetStarted }: { onGetStarted?: () => void }) {
                 style={{ 
                   pointerEvents: 'none',
                   transform: 'scale(1.1)',
+                  opacity: videoLoaded ? 1 : 0,
+                  transition: 'opacity 0.5s ease-in',
                 }}
+                onLoad={() => setVideoLoaded(true)}
                 loading="eager"
               />
             </div>
