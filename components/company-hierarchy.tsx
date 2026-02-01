@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { Users, Wrench, HardHat } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { getTranslations } from "@/lib/translations"
 
@@ -11,6 +10,12 @@ const companyUrls = {
   goTeam: "https://go-teamnl.nl",
   sword: "https://swordbv.nl",
   alphaBouw: "https://alphabow.vercel.app/",
+}
+
+const companyLogos = {
+  goTeam: "https://go-teamnl.nl/favicon.ico",
+  sword: "https://swordbv.nl/favicon.ico",
+  alphaBouw: "https://alphabow.vercel.app/favicon.ico",
 }
 
 export function CompanyHierarchy() {
@@ -97,7 +102,7 @@ export function CompanyHierarchy() {
       id: "goTeam",
       name: "GO-TEAM",
       role: t.hierarchy.goTeam,
-      icon: Users,
+      logo: companyLogos.goTeam,
       color: "from-blue-500 to-cyan-500",
       url: companyUrls.goTeam,
     },
@@ -105,7 +110,7 @@ export function CompanyHierarchy() {
       id: "sword",
       name: "SWORD BV",
       role: t.hierarchy.sword,
-      icon: Wrench,
+      logo: companyLogos.sword,
       color: "from-orange-500 to-amber-500",
       url: companyUrls.sword,
     },
@@ -113,7 +118,7 @@ export function CompanyHierarchy() {
       id: "alphaBouw",
       name: "ALPHABouw",
       role: t.hierarchy.alphaBouw,
-      icon: HardHat,
+      logo: companyLogos.alphaBouw,
       color: "from-emerald-500 to-teal-500",
       url: companyUrls.alphaBouw,
     },
@@ -284,7 +289,6 @@ export function CompanyHierarchy() {
           {/* Company Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4">
             {companies.map((company, index) => {
-              const Icon = company.icon
               const isHovered = hoveredCompany === company.id
 
               return (
@@ -316,16 +320,21 @@ export function CompanyHierarchy() {
                         isHovered ? "shadow-2xl -translate-y-1 sm:-translate-y-2 border-accent/30 scale-[1.02] sm:scale-105" : "shadow-lg"
                       }`}
                     >
-                      {/* Icon with gradient background on hover */}
+                      {/* Logo Image */}
                       <div
                         className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 md:mb-5 transition-all duration-500 ${
                           isHovered ? `bg-gradient-to-br ${company.color} shadow-lg scale-110` : "bg-secondary"
                         }`}
                       >
-                        <Icon
-                          className={`w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 transition-colors duration-500 ${
-                            isHovered ? "text-white" : "text-muted-foreground"
-                          }`}
+                        <Image
+                          src={company.logo}
+                          alt={`${company.name} Logo`}
+                          width={64}
+                          height={64}
+                          className="w-full h-full object-contain p-1"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none'
+                          }}
                         />
                       </div>
 

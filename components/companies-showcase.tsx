@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Users, Wrench, HardHat, Check, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowRight, Check, ChevronLeft, ChevronRight } from "lucide-react"
 import { DotLottieReact } from "@lottiefiles/dotlottie-react"
 import { useLanguage } from "@/lib/language-context"
 import { getTranslations } from "@/lib/translations"
@@ -17,7 +18,13 @@ const companyImages = {
 const companyUrls = {
   goTeam: "https://go-teamnl.nl",
   sword: "https://swordbv.nl",
-  alphaBouw: "https://v0-modern-website-design-zeta-three.vercel.app/",
+  alphaBouw: "https://alphabow.vercel.app/",
+}
+
+const companyLogos = {
+  goTeam: "https://go-teamnl.nl/favicon.ico",
+  sword: "https://swordbv.nl/favicon.ico",
+  alphaBouw: "https://alphabow.vercel.app/favicon.ico",
 }
 
 export function CompaniesShowcase() {
@@ -36,7 +43,7 @@ export function CompaniesShowcase() {
       description: t.companies.goTeam.description,
       features: t.companies.goTeam.features,
       image: companyImages.goTeam,
-      icon: Users,
+      logo: companyLogos.goTeam,
       color: "bg-blue-500",
       colorLight: "bg-blue-500/10",
       url: companyUrls.goTeam,
@@ -48,7 +55,7 @@ export function CompaniesShowcase() {
       description: t.companies.sword.description,
       features: t.companies.sword.features,
       image: companyImages.sword,
-      icon: Wrench,
+      logo: companyLogos.sword,
       color: "bg-amber-500",
       colorLight: "bg-amber-500/10",
       url: companyUrls.sword,
@@ -60,7 +67,7 @@ export function CompaniesShowcase() {
       description: t.companies.alphaBouw.description,
       features: t.companies.alphaBouw.features,
       image: companyImages.alphaBouw,
-      icon: HardHat,
+      logo: companyLogos.alphaBouw,
       color: "bg-emerald-500",
       colorLight: "bg-emerald-500/10",
       url: companyUrls.alphaBouw,
@@ -122,7 +129,6 @@ export function CompaniesShowcase() {
           }`}
         >
           {companies.map((company, index) => {
-            const Icon = company.icon
             const isActive = activeCompany === index
             return (
               <button
@@ -134,7 +140,16 @@ export function CompaniesShowcase() {
                     : "bg-secondary/60 text-muted-foreground hover:bg-secondary hover:text-foreground"
                 }`}
               >
-                <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <Image
+                  src={company.logo}
+                  alt={company.name}
+                  width={20}
+                  height={20}
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
                 <span className="hidden sm:inline">{company.name}</span>
               </button>
             )
@@ -191,7 +206,16 @@ export function CompaniesShowcase() {
                       <div className="absolute bottom-5 left-5 z-10">
                         <div className="flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-4 py-2 border border-white/20">
                           <div className={`w-8 h-8 rounded-full ${company.color} flex items-center justify-center`}>
-                            <company.icon className="w-4 h-4 text-white" />
+                            <Image
+                              src={company.logo}
+                              alt={company.name}
+                              width={24}
+                              height={24}
+                              className="w-full h-full object-contain p-1"
+                              onError={(e) => {
+                                e.currentTarget.style.display = 'none'
+                              }}
+                            />
                           </div>
                           <span className="text-white font-medium text-sm">{company.name}</span>
                         </div>
@@ -205,7 +229,16 @@ export function CompaniesShowcase() {
                       <div
                         className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full ${company.colorLight} mb-3 sm:mb-4`}
                       >
-                        <company.icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${company.color.replace("bg-", "text-")}`} />
+                        <Image
+                          src={company.logo}
+                          alt={company.name}
+                          width={20}
+                          height={20}
+                          className="w-4 h-4 sm:w-5 sm:h-5"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none'
+                          }}
+                        />
                         <span className={`text-[10px] sm:text-xs font-medium ${company.color.replace("bg-", "text-")}`}>
                           {company.tagline}
                         </span>
