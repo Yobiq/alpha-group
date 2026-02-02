@@ -165,7 +165,7 @@ export function CompanyHierarchy() {
                 <div className="flex items-center gap-4 sm:gap-5">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform duration-500 relative bg-background">
                     <Image
-                      src="/alphalogo.png"
+                      src="/alphagroulogo.jpeg"
                       alt="Alpha Group Logo"
                       width={64}
                       height={64}

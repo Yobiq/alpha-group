@@ -37,7 +37,7 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-lg relative">
                 <Image
-                  src="/alphalogo.png"
+                  src="/alphagroulogo.jpeg"
                   alt="Alpha Group Logo"
                   width={40}
                   height={40}

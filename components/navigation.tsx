@@ -60,7 +60,7 @@ export function Navigation({ onGetStarted }: { onGetStarted?: () => void } = {})
           <a href="#" className="flex items-center gap-1.5 sm:gap-2.5 pl-1 sm:pl-2 pr-2 sm:pr-4">
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg overflow-hidden flex items-center justify-center relative">
               <Image
-                src="/alphalogo.png"
+                src="/alphagroulogo.jpeg"
                 alt="Alpha Group Logo"
                 width={32}
                 height={32}
