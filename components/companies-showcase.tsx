@@ -22,9 +22,9 @@ const companyUrls = {
 }
 
 const companyLogos = {
-  goTeam: "https://go-teamnl.nl/favicon.ico",
-  sword: "https://swordbv.nl/favicon.ico",
-  alphaBouw: "https://alphabow.vercel.app/favicon.ico",
+  goTeam: "/goteamlogo.jpeg",
+  sword: "/swordbvlogo.jpeg",
+  alphaBouw: "/logobouw.jpeg",
 }
 
 export function CompaniesShowcase() {

@@ -13,9 +13,9 @@ const companyUrls = {
 }
 
 const companyLogos = {
-  goTeam: "https://go-teamnl.nl/favicon.ico",
-  sword: "https://swordbv.nl/favicon.ico",
-  alphaBouw: "https://alphabow.vercel.app/favicon.ico",
+  goTeam: "/goteamlogo.jpeg",
+  sword: "/swordbvlogo.jpeg",
+  alphaBouw: "/logobouw.jpeg",
 }
 
 export function CompanyHierarchy() {
@@ -287,7 +287,7 @@ export function CompanyHierarchy() {
           </div>
 
           {/* Company Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4">
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 overflow-x-auto sm:overflow-visible">
             {companies.map((company, index) => {
               const isHovered = hoveredCompany === company.id
 
@@ -297,7 +297,7 @@ export function CompanyHierarchy() {
                   ref={(el) => {
                     companyCardsRef.current[index] = el
                   }}
-                  className={`transition-all duration-700 ${
+                  className={`transition-all duration-700 min-w-[260px] sm:min-w-0 ${
                     isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${700 + index * 100}ms` }}

@@ -149,7 +149,7 @@ export const translations = {
         services:
           "We offer a comprehensive range of services:\n\n• **Staffing Solutions** - Temporary & permanent placement\n• **Technical Engineering** - Structural analysis & consulting\n• **Construction** - New builds & renovations\n• **Project Management** - End-to-end oversight\n\nWhat specific service interests you?",
         contact:
-          "You can reach Alpha Group through:\n\n📧 Email: info@alphagroup.nl\n📞 Phone: +31 6 42672511\n📍 Address:\nAlpha Group B.V.\nMarktplein 36\n7311LR Apeldoorn\nNetherlands\n\nOr visit any of our company websites for specific inquiries.",
+          "You can reach Alpha Group through:\n\n📧 Email: info@alphagroup.nl\n📞 Phone: +31 85 401 5937\n💬 WhatsApp: +31 6 3465 7014\n📍 Address:\nAlpha Group B.V.\nMarktplein 36\n7311 LR Apeldoorn\nNetherlands\n\nOr visit any of our company websites for specific inquiries.",
         careers:
           "We're always looking for talented professionals!\n\nCurrent opportunities exist across all three companies in:\n• Construction & Engineering\n• Project Management\n• Technical Services\n• Administrative Roles\n\nVisit our careers page or contact HR for more information.",
         default:
@@ -261,7 +261,7 @@ export const translations = {
         services:
           "Wij bieden een uitgebreid dienstenpakket:\n\n• **Personeelsoplossingen** - Tijdelijke & vaste plaatsing\n• **Technische Engineering** - Constructieanalyse & advies\n• **Bouw** - Nieuwbouw & renovaties\n• **Projectmanagement** - Complete begeleiding\n\nWelke dienst interesseert u?",
         contact:
-          "U kunt Alpha Group bereiken via:\n\n📧 E-mail: info@alphagroup.nl\n📞 Telefoon: +31 6 42672511\n📍 Adres:\nAlpha Group B.V.\nMarktplein 36\n7311LR Apeldoorn\nNederland\n\nOf bezoek een van onze bedrijfswebsites voor specifieke vragen.",
+          "U kunt Alpha Group bereiken via:\n\n📧 E-mail: info@alphagroup.nl\n📞 Telefoon: +31 85 401 5937\n💬 WhatsApp: +31 6 3465 7014\n📍 Adres:\nAlpha Group B.V.\nMarktplein 36\n7311 LR Apeldoorn\nNederland\n\nOf bezoek een van onze bedrijfswebsites voor specifieke vragen.",
         careers:
           "Wij zijn altijd op zoek naar getalenteerde professionals!\n\nHuidige vacatures bij alle drie bedrijven in:\n• Bouw & Engineering\n• Projectmanagement\n• Technische Diensten\n• Administratieve Functies\n\nBezoek onze vacaturepagina of neem contact op met HR.",
         default:
@@ -417,7 +417,7 @@ export const translations = {
         services:
           "Ofrecemos una gama completa de servicios:\n\n• **Soluciones de Personal** - Colocación temporal y permanente\n• **Ingeniería Técnica** - Análisis estructural y consultoría\n• **Construcción** - Nuevas obras y renovaciones\n• **Gestión de Proyectos** - Supervisión integral\n\n¿Qué servicio te interesa?",
         contact:
-          "Puedes contactar a Alpha Group a través de:\n\n📧 Email: info@alphagroup.nl\n📞 Teléfono: +31 6 42672511\n📍 Dirección:\nAlpha Group B.V.\nMarktplein 36\n7311LR Apeldoorn\nPaíses Bajos\n\nO visita cualquiera de nuestros sitios web para consultas específicas.",
+          "Puedes contactar a Alpha Group a través de:\n\n📧 Email: info@alphagroup.nl\n📞 Teléfono: +31 85 401 5937\n💬 WhatsApp: +31 6 3465 7014\n📍 Dirección:\nAlpha Group B.V.\nMarktplein 36\n7311 LR Apeldoorn\nPaíses Bajos\n\nO visita cualquiera de nuestros sitios web para consultas específicas.",
         careers:
           "¡Siempre buscamos profesionales talentosos!\n\nOportunidades actuales en las tres empresas:\n• Construcción e Ingeniería\n• Gestión de Proyectos\n• Servicios Técnicos\n• Roles Administrativos\n\nVisita nuestra página de empleos o contacta a RRHH.",
         default:
@@ -568,7 +568,7 @@ export const translations = {
         services:
           "我们提供全面的服务：\n\n• **人力资源解决方案** - 临时和长期人员配置\n• **技术工程** - 结构分析和咨询\n• **建筑服务** - 新建和翻新\n• **项目管理** - 全程监督\n\n您对哪项服务感兴趣？",
         contact:
-          "您可以通过以下方式联系Alpha集团：\n\n📧 邮箱: info@alphagroup.nl\n📞 电话: +31 6 42672511\n📍 地址:\nAlpha Group B.V.\nMarktplein 36\n7311LR Apeldoorn\n荷兰\n\n或访问我们各公司网站进行具体咨询。",
+          "您可以通过以下方式联系Alpha集团：\n\n📧 邮箱: info@alphagroup.nl\n📞 电话: +31 85 401 5937\n💬 WhatsApp: +31 6 3465 7014\n📍 地址:\nAlpha Group B.V.\nMarktplein 36\n7311 LR Apeldoorn\n荷兰\n\n或访问我们各公司网站进行具体咨询。",
         careers:
           "我们一直在寻找优秀人才！\n\n三家公司目前的职位空缺：\n• 建筑与工程\n• 项目管理\n• 技术服务\n• 行政岗位\n\n请访问我们的招聘页面或联系人力资源部门。",
         default:
