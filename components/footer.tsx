@@ -13,7 +13,7 @@ export function Footer() {
     companies: [
       { name: "GO-TEAM", href: "#" },
       { name: "SWORD BV", href: "#" },
-      { name: "ALPHABouw", href: "#" },
+      { name: "Alphabouw", href: "#" },
     ],
     resources: [
       { name: t.footer.aboutUs, href: "#" },

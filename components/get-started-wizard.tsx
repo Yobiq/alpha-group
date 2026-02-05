@@ -201,7 +201,7 @@ export function GetStartedWizard({ isOpen, onClose }: { isOpen: boolean; onClose
                       <option value="">Select a service</option>
                       <option value="staffing">Staffing Solutions (GO-TEAM)</option>
                       <option value="technical">Technical Services (SWORD BV)</option>
-                      <option value="construction">Construction Services (ALPHABouw)</option>
+                      <option value="construction">Construction Services (Alphabouw)</option>
                       <option value="multiple">Multiple Services</option>
                     </select>
                   </div>

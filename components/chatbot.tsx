@@ -181,7 +181,7 @@ export function Chatbot() {
     ) {
       return {
         text: t.chatbot.responses.alphaBouw,
-        links: [{ label: "ALPHABouw", url: "https://v0-modern-website-design-zeta-three.vercel.app/" }],
+        links: [{ label: "Alphabouw", url: "https://v0-modern-website-design-zeta-three.vercel.app/" }],
       }
     }
     if (
@@ -193,7 +193,7 @@ export function Chatbot() {
     ) {
       return {
         text: t.chatbot.responses.companies,
-        suggestions: ["GO-TEAM", "SWORD BV", "ALPHABouw"],
+        suggestions: ["GO-TEAM", "SWORD BV", "Alphabouw"],
       }
     }
     if (

@@ -45,7 +45,7 @@ export const translations = {
         features: ["Structural Engineering", "MEP Installations", "Technical Consulting", "Quality Assurance"],
       },
       alphaBouw: {
-        name: "ALPHABouw",
+        name: "Alphabouw",
         tagline: "Building Excellence",
         description:
           "ALPHABouw is a full-service construction company specializing in residential and commercial building projects. From new constructions to renovations, we deliver quality craftsmanship with innovative building techniques.",
@@ -139,13 +139,13 @@ export const translations = {
       },
       responses: {
         companies:
-          "Alpha Group consists of three specialized companies:\n\n**GO-TEAM** - Staffing solutions for construction & industry\n**SWORD BV** - Technical engineering services\n**ALPHABouw** - Full-service construction\n\nWhich company would you like to learn more about?",
+          "Alpha Group consists of three specialized companies:\n\n**GO-TEAM** - Staffing solutions for construction & industry\n**SWORD BV** - Technical engineering services\n**Alphabouw** - Full-service construction\n\nWhich company would you like to learn more about?",
         goTeam:
           "**GO-TEAM** is our staffing division, specializing in providing skilled temporary workers for construction and industrial sectors. We connect talented professionals with leading companies across the Netherlands and Belgium.\n\nVisit: https://go-teamnl.nl",
         sword:
           "**SWORD BV** delivers specialized technical services and engineering solutions for complex construction projects. From structural analysis to MEP installations, we ensure every detail meets the highest standards.\n\nVisit: https://swordbv.nl",
         alphaBouw:
-          "**ALPHABouw** is our full-service construction company specializing in residential and commercial building projects. From new constructions to renovations, we deliver quality craftsmanship.\n\nVisit: https://v0-modern-website-design-zeta-three.vercel.app/",
+          "**Alphabouw** is our full-service construction company specializing in residential and commercial building projects. From new constructions to renovations, we deliver quality craftsmanship.\n\nVisit: https://v0-modern-website-design-zeta-three.vercel.app/",
         services:
           "We offer a comprehensive range of services:\n\n• **Staffing Solutions** - Temporary & permanent placement\n• **Technical Engineering** - Structural analysis & consulting\n• **Construction** - New builds & renovations\n• **Project Management** - End-to-end oversight\n\nWhat specific service interests you?",
         contact:
@@ -153,7 +153,7 @@ export const translations = {
         careers:
           "We're always looking for talented professionals!\n\nCurrent opportunities exist across all three companies in:\n• Construction & Engineering\n• Project Management\n• Technical Services\n• Administrative Roles\n\nVisit our careers page or contact HR for more information.",
         default:
-          "Thank you for your message. I'd be happy to help you with information about Alpha Group, our companies (GO-TEAM, SWORD BV, ALPHABouw), services, or career opportunities. What would you like to know?",
+          "Thank you for your message. I'd be happy to help you with information about Alpha Group, our companies (GO-TEAM, SWORD BV, Alphabouw), services, or career opportunities. What would you like to know?",
       },
     },
   },
@@ -201,7 +201,7 @@ export const translations = {
         features: ["Constructie Engineering", "Installaties", "Technisch Advies", "Kwaliteitsborging"],
       },
       alphaBouw: {
-        name: "ALPHABouw",
+        name: "Alphabouw",
         tagline: "Bouwen aan Excellentie",
         description:
           "ALPHABouw is een full-service bouwbedrijf gespecialiseerd in residentiële en commerciële bouwprojecten. Van nieuwbouw tot renovaties, wij leveren vakmanschap met innovatieve bouwtechnieken.",
@@ -251,13 +251,13 @@ export const translations = {
       },
       responses: {
         companies:
-          "Alpha Group bestaat uit drie gespecialiseerde bedrijven:\n\n**GO-TEAM** - Personeelsoplossingen voor bouw & industrie\n**SWORD BV** - Technische engineering diensten\n**ALPHABouw** - Full-service bouw\n\nOver welk bedrijf wilt u meer weten?",
+          "Alpha Group bestaat uit drie gespecialiseerde bedrijven:\n\n**GO-TEAM** - Personeelsoplossingen voor bouw & industrie\n**SWORD BV** - Technische engineering diensten\n**Alphabouw** - Full-service bouw\n\nOver welk bedrijf wilt u meer weten?",
         goTeam:
           "**GO-TEAM** is onze personeelsdivisie, gespecialiseerd in het leveren van gekwalificeerde uitzendkrachten voor de bouw- en industriële sectoren. Wij verbinden professionals met toonaangevende bedrijven in Nederland en België.\n\nBezoek: https://go-teamnl.nl",
         sword:
           "**SWORD BV** levert gespecialiseerde technische diensten en engineering oplossingen voor complexe bouwprojecten. Van constructieanalyse tot installaties, elk detail voldoet aan de hoogste normen.\n\nBezoek: https://swordbv.nl",
         alphaBouw:
-          "**ALPHABouw** is ons full-service bouwbedrijf gespecialiseerd in residentiële en commerciële projecten. Van nieuwbouw tot renovaties, wij leveren kwaliteitsvakmanschap.\n\nBezoek: https://v0-modern-website-design-zeta-three.vercel.app/",
+          "**Alphabouw** is ons full-service bouwbedrijf gespecialiseerd in residentiële en commerciële projecten. Van nieuwbouw tot renovaties, wij leveren kwaliteitsvakmanschap.\n\nBezoek: https://v0-modern-website-design-zeta-three.vercel.app/",
         services:
           "Wij bieden een uitgebreid dienstenpakket:\n\n• **Personeelsoplossingen** - Tijdelijke & vaste plaatsing\n• **Technische Engineering** - Constructieanalyse & advies\n• **Bouw** - Nieuwbouw & renovaties\n• **Projectmanagement** - Complete begeleiding\n\nWelke dienst interesseert u?",
         contact:
@@ -265,7 +265,7 @@ export const translations = {
         careers:
           "Wij zijn altijd op zoek naar getalenteerde professionals!\n\nHuidige vacatures bij alle drie bedrijven in:\n• Bouw & Engineering\n• Projectmanagement\n• Technische Diensten\n• Administratieve Functies\n\nBezoek onze vacaturepagina of neem contact op met HR.",
         default:
-          "Bedankt voor uw bericht. Ik help u graag met informatie over Alpha Group, onze bedrijven (GO-TEAM, SWORD BV, ALPHABouw), diensten of carrièremogelijkheden. Wat wilt u weten?",
+          "Bedankt voor uw bericht. Ik help u graag met informatie over Alpha Group, onze bedrijven (GO-TEAM, SWORD BV, Alphabouw), diensten of carrièremogelijkheden. Wat wilt u weten?",
       },
       form: {
         startForm: "Ik help u graag op weg! Laat me wat informatie verzamelen om u beter te kunnen helpen.",
@@ -357,7 +357,7 @@ export const translations = {
         features: ["Ingeniería Estructural", "Instalaciones", "Consultoría Técnica", "Garantía de Calidad"],
       },
       alphaBouw: {
-        name: "ALPHABouw",
+        name: "Alphabouw",
         tagline: "Construyendo Excelencia",
         description:
           "ALPHABouw es una empresa de construcción de servicio completo especializada en proyectos de construcción residencial y comercial. Desde nuevas construcciones hasta renovaciones, entregamos artesanía de calidad con técnicas innovadoras.",
@@ -407,13 +407,13 @@ export const translations = {
       },
       responses: {
         companies:
-          "Alpha Group consta de tres empresas especializadas:\n\n**GO-TEAM** - Soluciones de personal para construcción e industria\n**SWORD BV** - Servicios de ingeniería técnica\n**ALPHABouw** - Construcción integral\n\n¿Sobre cuál empresa te gustaría saber más?",
+          "Alpha Group consta de tres empresas especializadas:\n\n**GO-TEAM** - Soluciones de personal para construcción e industria\n**SWORD BV** - Servicios de ingeniería técnica\n**Alphabouw** - Construcción integral\n\n¿Sobre cuál empresa te gustaría saber más?",
         goTeam:
           "**GO-TEAM** es nuestra división de personal, especializada en proporcionar trabajadores calificados para los sectores de construcción e industrial. Conectamos profesionales con empresas líderes en los Países Bajos y Bélgica.\n\nVisita: https://go-teamnl.nl",
         sword:
           "**SWORD BV** ofrece servicios técnicos especializados y soluciones de ingeniería para proyectos de construcción complejos. Desde análisis estructural hasta instalaciones, cada detalle cumple los más altos estándares.\n\nVisita: https://swordbv.nl",
         alphaBouw:
-          "**ALPHABouw** es nuestra empresa de construcción integral especializada en proyectos residenciales y comerciales. Desde nuevas construcciones hasta renovaciones, entregamos artesanía de calidad.\n\nVisita: https://v0-modern-website-design-zeta-three.vercel.app/",
+          "**Alphabouw** es nuestra empresa de construcción integral especializada en proyectos residenciales y comerciales. Desde nuevas construcciones hasta renovaciones, entregamos artesanía de calidad.\n\nVisita: https://v0-modern-website-design-zeta-three.vercel.app/",
         services:
           "Ofrecemos una gama completa de servicios:\n\n• **Soluciones de Personal** - Colocación temporal y permanente\n• **Ingeniería Técnica** - Análisis estructural y consultoría\n• **Construcción** - Nuevas obras y renovaciones\n• **Gestión de Proyectos** - Supervisión integral\n\n¿Qué servicio te interesa?",
         contact:
@@ -421,7 +421,7 @@ export const translations = {
         careers:
           "¡Siempre buscamos profesionales talentosos!\n\nOportunidades actuales en las tres empresas:\n• Construcción e Ingeniería\n• Gestión de Proyectos\n• Servicios Técnicos\n• Roles Administrativos\n\nVisita nuestra página de empleos o contacta a RRHH.",
         default:
-          "Gracias por tu mensaje. Estoy encantado de ayudarte con información sobre Alpha Group, nuestras empresas (GO-TEAM, SWORD BV, ALPHABouw), servicios u oportunidades de carrera. ¿Qué te gustaría saber?",
+          "Gracias por tu mensaje. Estoy encantado de ayudarte con información sobre Alpha Group, nuestras empresas (GO-TEAM, SWORD BV, Alphabouw), servicios u oportunidades de carrera. ¿Qué te gustaría saber?",
       },
       form: {
         startForm: "¡Estaré encantado de ayudarte a comenzar! Déjame recopilar información para ayudarte mejor.",
@@ -511,7 +511,7 @@ export const translations = {
         features: ["结构工程", "机电安装", "技术咨询", "质量保证"],
       },
       alphaBouw: {
-        name: "ALPHABouw",
+        name: "Alphabouw",
         tagline: "卓越建筑",
         description:
           "ALPHABouw是一家全方位服务的建筑公司，专注于住宅和商业建筑项目。从新建到翻新，我们以创新的建筑技术提供优质工艺。",
@@ -558,13 +558,13 @@ export const translations = {
       },
       responses: {
         companies:
-          "Alpha集团由三家专业公司组成：\n\n**GO-TEAM** - 建筑和工业人力资源解决方案\n**SWORD BV** - 技术工程服务\n**ALPHABouw** - 全方位建筑服务\n\n您想了解哪家公司的更多信息？",
+          "Alpha集团由三家专业公司组成：\n\n**GO-TEAM** - 建筑和工业人力资源解决方案\n**SWORD BV** - 技术工程服务\n**Alphabouw** - 全方位建筑服务\n\n您想了解哪家公司的更多信息？",
         goTeam:
           "**GO-TEAM**是我们的人力资源部门，专注于为建筑和工业领域提供专业临时工人。我们将优秀人才与荷兰和比利时的领先企业对接。\n\n访问: https://v0-sword-bv-website-design.vercel.app/",
         sword:
           "**SWORD BV**为复杂建筑项目提供专业技术服务和工程解决方案。从结构分析到机电安装，每个细节都符合最高标准。\n\n访问: https://v0-sword-bv-website.vercel.app/",
         alphaBouw:
-          "**ALPHABouw**是我们的全方位建筑公司，专注于住宅和商业项目。从新建到翻新，我们提供优质工艺。\n\n访问: https://v0-modern-website-design-zeta-three.vercel.app/",
+          "**Alphabouw**是我们的全方位建筑公司，专注于住宅和商业项目。从新建到翻新，我们提供优质工艺。\n\n访问: https://v0-modern-website-design-zeta-three.vercel.app/",
         services:
           "我们提供全面的服务：\n\n• **人力资源解决方案** - 临时和长期人员配置\n• **技术工程** - 结构分析和咨询\n• **建筑服务** - 新建和翻新\n• **项目管理** - 全程监督\n\n您对哪项服务感兴趣？",
         contact:
@@ -572,7 +572,7 @@ export const translations = {
         careers:
           "我们一直在寻找优秀人才！\n\n三家公司目前的职位空缺：\n• 建筑与工程\n• 项目管理\n• 技术服务\n• 行政岗位\n\n请访问我们的招聘页面或联系人力资源部门。",
         default:
-          "感谢您的消息。我很乐意为您提供有关Alpha集团、我们的公司（GO-TEAM、SWORD BV、ALPHABouw）、服务或职业机会的信息。您想了解什么？",
+          "感谢您的消息。我很乐意为您提供有关Alpha集团、我们的公司（GO-TEAM、SWORD BV、Alphabouw）、服务或职业机会的信息。您想了解什么？",
       },
       form: {
         startForm: "我很乐意帮助您开始！让我收集一些信息以便更好地为您服务。",

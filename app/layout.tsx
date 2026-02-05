@@ -11,7 +11,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Alpha Group | Next-Level Construction Platform",
   description:
-    "Alpha Group unites GO-TEAM, SWORD BV, and ALPHABouw - three pioneering construction and staffing companies delivering excellence across Europe.",
+    "Alpha Group unites GO-TEAM, SWORD BV, and Alphabouw - three pioneering construction and staffing companies delivering excellence across Europe.",
   generator: "v0.app",
   icons: {
     icon: [

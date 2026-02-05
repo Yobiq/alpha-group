@@ -31,6 +31,7 @@ export function CompaniesShowcase() {
   const [activeCompany, setActiveCompany] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
   const { language } = useLanguage()
   const t = getTranslations(language)
@@ -74,6 +75,19 @@ export function CompaniesShowcase() {
     },
   ]
 
+  // Auto-rotate companies for slideshow effect
+  useEffect(() => {
+    if (!isVisible) return
+
+    const interval = setInterval(() => {
+      if (!isPaused && !isAnimating) {
+        setActiveCompany((prev) => (prev + 1) % companies.length)
+      }
+    }, 7000)
+
+    return () => clearInterval(interval)
+  }, [companies.length, isAnimating, isPaused, isVisible])
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -103,8 +117,19 @@ export function CompaniesShowcase() {
   const nextCompany = () => handleCompanyChange((activeCompany + 1) % companies.length)
   const prevCompany = () => handleCompanyChange((activeCompany - 1 + companies.length) % companies.length)
 
+  const activeGlow =
+    activeCompany === 0
+      ? "from-blue-500/40 via-blue-500/10 to-transparent"
+      : activeCompany === 1
+        ? "from-amber-500/40 via-amber-500/10 to-transparent"
+        : "from-emerald-500/40 via-emerald-500/10 to-transparent"
+
   return (
     <section ref={sectionRef} id="companies" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+      {/* Dynamic background glow behind cards */}
+      <div
+        className={`pointer-events-none absolute -inset-24 -z-10 bg-gradient-radial blur-3xl opacity-40 transition-all duration-700 ${activeGlow}`}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12 lg:mb-16">
           <h2
@@ -156,7 +181,11 @@ export function CompaniesShowcase() {
           })}
         </div>
 
-        <div className="relative">
+        <div
+          className="relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           {/* Navigation arrows */}
           <button
             onClick={prevCompany}

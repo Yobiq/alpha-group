@@ -116,7 +116,7 @@ export function CompanyHierarchy() {
     },
     {
       id: "alphaBouw",
-      name: "ALPHABouw",
+      name: "Alphabouw",
       role: t.hierarchy.alphaBouw,
       logo: companyLogos.alphaBouw,
       color: "from-emerald-500 to-teal-500",
