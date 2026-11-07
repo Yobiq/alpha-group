@@ -32,8 +32,8 @@ export function CTASection({ onGetStarted }: { onGetStarted?: () => void }) {
   return (
     <section ref={sectionRef} id="contact" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
       {/* Subtle background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-accent/5 rounded-full blur-3xl" />
+      <div aria-hidden className="absolute inset-0">
+        <div className="animate-aurora-slow absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] sm:w-[700px] h-[420px] sm:h-[700px] rounded-full bg-[radial-gradient(circle_at_center,oklch(0.64_0.19_255/0.22),transparent_68%)] blur-2xl" />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -43,12 +43,12 @@ export function CTASection({ onGetStarted }: { onGetStarted?: () => void }) {
           }`}
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-secondary/80 border border-border/50 mb-6 sm:mb-10 shadow-sm">
+          <div className="glass-panel inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full mb-6 sm:mb-10">
             <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent" />
-            <span className="text-xs font-medium text-muted-foreground tracking-wide uppercase">{t.cta.badge}</span>
+            <span className="text-xs font-medium text-muted-foreground tracking-[0.18em] uppercase">{t.cta.badge}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight text-balance px-2">
+          <h2 className="text-gradient text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mb-6 tracking-tight text-balance px-2">
             {t.cta.title}
           </h2>
 
@@ -68,7 +68,7 @@ export function CTASection({ onGetStarted }: { onGetStarted?: () => void }) {
             <Button
               size="lg"
               variant="outline"
-              className="border-border hover:bg-secondary/50 bg-background/50 rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium w-full sm:w-auto"
+              className="glass-panel border-0 hover:bg-foreground/10 rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium text-foreground w-full sm:w-auto"
             >
               {t.cta.opportunities}
             </Button>

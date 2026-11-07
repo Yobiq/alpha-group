@@ -131,7 +131,7 @@ export function CompanyHierarchy() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16 lg:mb-24 px-4">
           <h2
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight transition-all duration-1000 ${
+            className={`text-gradient text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mb-6 tracking-tight transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
@@ -159,11 +159,11 @@ export function CompanyHierarchy() {
               <div className="absolute inset-0 bg-foreground/10 rounded-2xl sm:rounded-3xl blur-2xl transform translate-y-4 group-hover:translate-y-6 transition-transform duration-500" />
 
               <div
-                className="relative bg-background border border-border/50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 group-hover:-translate-y-2"
+                className="glass-panel relative rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-[0_24px_80px_-24px_oklch(0.64_0.19_255/0.6)]"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="flex items-center gap-4 sm:gap-5">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center shadow-lg transform group-hover:rotate-6 transition-transform duration-500 relative bg-background">
+                  <div className="logo-chip w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl overflow-hidden flex items-center justify-center p-1.5 transform group-hover:rotate-6 transition-transform duration-500 relative">
                     <Image
                       src="/alphagroulogo.jpeg"
                       alt="Alpha Group Logo"
@@ -191,7 +191,7 @@ export function CompanyHierarchy() {
             <svg
               ref={svgRef}
               className="absolute inset-0 w-full h-full hidden md:block"
-              style={{ filter: "drop-shadow(0 0 20px rgba(59, 130, 246, 0.6))", overflow: "visible" }}
+              style={{ filter: "drop-shadow(0 0 14px rgba(59, 130, 246, 0.35))", overflow: "visible" }}
             >
               <defs>
                 <filter id="strongGlow">
@@ -212,74 +212,58 @@ export function CompanyHierarchy() {
                 </radialGradient>
               </defs>
               
-              {arrowPaths.map((line, idx) => {
-                // Calculate arrow angle at end point
-                const dx = line.x2 - line.controlX
-                const dy = line.y2 - line.controlY
-                const angle = Math.atan2(dy, dx) * (180 / Math.PI)
+              {/* Origin node at the parent card */}
+              {arrowPaths[0] && (
+                <g>
+                  <circle cx={arrowPaths[0].x1} cy={arrowPaths[0].y1} r="5" fill="url(#pulseGradient)" filter="url(#strongGlow)" />
+                  <circle cx={arrowPaths[0].x1} cy={arrowPaths[0].y1} r="2" fill="#dbeaff" />
+                </g>
+              )}
 
+              {arrowPaths.map((line, idx) => {
+                const d = `M ${line.x1} ${line.y1} Q ${line.controlX} ${line.controlY} ${line.x2} ${line.y2}`
                 return (
-                <g key={idx}>
-                  {/* Glow background path */}
-                  <path
-                      d={`M ${line.x1} ${line.y1} Q ${line.controlX} ${line.controlY} ${line.x2} ${line.y2}`}
-                    stroke="#3b82f6"
-                      strokeWidth="12"
-                    fill="none"
-                      opacity="0.4"
-                    filter="url(#strongGlow)"
-                    strokeLinecap="round"
-                  />
-                  {/* Main glowing line */}
-                  <path
-                      d={`M ${line.x1} ${line.y1} Q ${line.controlX} ${line.controlY} ${line.x2} ${line.y2}`}
-                    stroke="url(#glowGradientStrong)"
-                    strokeWidth="4"
-                    fill="none"
-                    strokeLinecap="round"
+                  <g key={idx}>
+                    {/* Soft glow underlay */}
+                    <path
+                      d={d}
+                      stroke="#3b82f6"
+                      strokeWidth="8"
+                      fill="none"
+                      opacity="0.18"
+                      filter="url(#strongGlow)"
+                      strokeLinecap="round"
+                    />
+                    {/* Main line */}
+                    <path
+                      d={d}
+                      stroke="url(#glowGradientStrong)"
+                      strokeWidth="2.25"
+                      fill="none"
+                      strokeLinecap="round"
                       className="transition-all duration-500"
-                  />
-                  
-                    {/* Animated pulse point at control */}
-                  <circle 
-                      cx={line.controlX}
-                      cy={line.controlY}
-                      r="8"
-                      fill="url(#pulseGradient)"
-                      opacity="0.8"
-                    filter="url(#strongGlow)"
-                    style={{
-                        animation: `pulse 2s ease-in-out infinite`,
-                        animationDelay: `${idx * 0.3}s`,
-                    }}
-                  />
-                  
-                  {/* Outer glow ring */}
-                  <circle 
-                      cx={line.controlX}
-                      cy={line.controlY}
-                      r="12"
-                    fill="none"
-                    stroke="#3b82f6"
-                      strokeWidth="1.5"
-                      opacity="0.6"
-                    style={{
-                        animation: `pulse-ring 2s ease-in-out infinite`,
-                        animationDelay: `${idx * 0.3}s`,
-                      }}
                     />
 
-                    {/* Smart arrow pointing directly at card */}
-                    <g transform={`translate(${line.x2}, ${line.y2}) rotate(${angle})`}>
-                      <polygon
-                        points="0,0 -12,18 12,18"
-                        fill="#0ea5e9"
-                        filter="url(#strongGlow)"
-                        opacity="1"
-                        className="transition-all duration-300"
-                      />
-                      <polygon points="0,0 -7,11 7,11" fill="#06b6d4" opacity="0.9" />
-                    </g>
+                    {/* Clean landing node where the line meets the card */}
+                    <circle
+                      cx={line.x2}
+                      cy={line.y2}
+                      r="11"
+                      fill="none"
+                      stroke="#3b82f6"
+                      strokeWidth="1.25"
+                      opacity="0.45"
+                      style={{ animation: `glow-ring 2.6s ease-in-out infinite`, animationDelay: `${idx * 0.35}s` }}
+                    />
+                    <circle
+                      cx={line.x2}
+                      cy={line.y2}
+                      r="5"
+                      fill="url(#pulseGradient)"
+                      filter="url(#strongGlow)"
+                      style={{ animation: `pulse 2.6s ease-in-out infinite`, animationDelay: `${idx * 0.35}s` }}
+                    />
+                    <circle cx={line.x2} cy={line.y2} r="2" fill="#dbeaff" />
                   </g>
                 )
               })}
@@ -316,14 +300,14 @@ export function CompanyHierarchy() {
                     />
 
                     <div
-                      className={`relative bg-background border border-border/50 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-500 ${
-                        isHovered ? "shadow-2xl -translate-y-1 sm:-translate-y-2 border-accent/30 scale-[1.02] sm:scale-105" : "shadow-lg"
+                      className={`glass-panel relative rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 transition-all duration-500 ${
+                        isHovered ? "shadow-2xl -translate-y-1 sm:-translate-y-2 scale-[1.02] sm:scale-105 shadow-[0_20px_70px_-24px_oklch(0.64_0.19_255/0.55)]" : "shadow-lg"
                       }`}
                     >
                       {/* Logo Image */}
                       <div
-                        className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 md:mb-5 transition-all duration-500 ${
-                          isHovered ? `bg-gradient-to-br ${company.color} shadow-lg scale-110` : "bg-secondary"
+                        className={`logo-chip w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl flex items-center justify-center p-1.5 mb-3 sm:mb-4 md:mb-5 transition-all duration-500 ${
+                          isHovered ? "scale-110 shadow-[0_12px_34px_-10px_oklch(0.64_0.19_255/0.6)]" : ""
                         }`}
                       >
                         <Image

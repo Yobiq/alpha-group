@@ -25,3 +25,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# Remotion rendered output (regenerate with: pnpm render:hero)
+/public/hero-bg.mp4
+/public/hero-bg-poster.jpg

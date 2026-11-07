@@ -133,7 +133,7 @@ export function CompaniesShowcase() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12 lg:mb-16">
           <h2
-            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 tracking-tight transition-all duration-1000 ${
+            className={`text-gradient text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 sm:mb-6 tracking-tight transition-all duration-1000 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
           >
@@ -220,7 +220,7 @@ export function CompaniesShowcase() {
                     rel="noopener noreferrer"
                     className="relative group order-2 lg:order-1"
                   >
-                    <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-background/50 backdrop-blur-sm">
+                    <div className="glass-panel relative overflow-hidden rounded-2xl shadow-2xl transition-all duration-500 group-hover:shadow-[0_20px_70px_-20px_oklch(0.64_0.19_255/0.55)]">
                       <div className="w-full h-[400px] flex items-center justify-center">
                         <DotLottieReact
                           src="https://lottie.host/8e585d49-3a7c-4010-bd88-684bedc1a1e1/sotymkQGYT.lottie"

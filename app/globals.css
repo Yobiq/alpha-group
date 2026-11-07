@@ -41,25 +41,26 @@
 }
 
 .dark {
-  --background: oklch(0.08 0.01 270);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.12 0.01 270);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.1 0.01 270);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.98 0 0);
-  --primary-foreground: oklch(0.08 0.01 270);
-  --secondary: oklch(0.18 0.01 270);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.2 0.01 270);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.6 0.2 250);
-  --accent-foreground: oklch(0.08 0.01 270);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.25 0.01 270);
-  --input: oklch(0.2 0.01 270);
-  --ring: oklch(0.6 0.2 250);
+  /* Dark-luxury: near-black base, elevated surfaces, one electric-blue accent */
+  --background: oklch(0.09 0.004 270);
+  --foreground: oklch(0.97 0 0);
+  --card: oklch(0.12 0.006 270);
+  --card-foreground: oklch(0.97 0 0);
+  --popover: oklch(0.11 0.006 270);
+  --popover-foreground: oklch(0.97 0 0);
+  --primary: oklch(0.97 0 0);
+  --primary-foreground: oklch(0.09 0.004 270);
+  --secondary: oklch(0.15 0.006 270);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.17 0.006 270);
+  --muted-foreground: oklch(0.64 0.01 270);
+  --accent: oklch(0.64 0.19 255);
+  --accent-foreground: oklch(0.09 0.004 270);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.97 0 0);
+  --border: oklch(0.26 0.008 270);
+  --input: oklch(0.2 0.006 270);
+  --ring: oklch(0.64 0.19 255);
   --chart-1: oklch(0.6 0.2 250);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -120,9 +121,20 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    /* Match overscroll / rubber-band area to the theme (no white flash) */
+    background-color: var(--background);
+  }
   body {
     @apply bg-background text-foreground antialiased;
   }
+}
+
+/* Clean white chip for logos (source art is JPEG on white) */
+.logo-chip {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+    0 2px 10px -2px rgba(0, 0, 0, 0.5);
 }
 
 /* Added Apple-style 3D and motion animations */
@@ -321,4 +333,216 @@ html {
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+}
+
+/* ============================================================
+   Premium dark-luxury system
+   ============================================================ */
+
+/* Frosted glass surface for cards, pills, panels */
+.glass-panel {
+  background: color-mix(in oklch, var(--card) 55%, transparent);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Gradient clip text (headline accents) */
+.text-gradient {
+  background: linear-gradient(
+    180deg,
+    oklch(0.98 0 0) 0%,
+    oklch(0.72 0.01 270) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(
+    110deg,
+    oklch(0.7 0.16 255) 0%,
+    oklch(0.78 0.13 220) 50%,
+    oklch(0.7 0.16 255) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Accent glow for focal elements */
+.glow-accent {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 8px 40px -8px color-mix(in oklch, var(--accent) 55%, transparent);
+}
+
+/* Hairline divider that fades at the edges */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+}
+
+/* Drifting construction-grid background (perspective lines) */
+.bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 54px 54px;
+}
+
+/* Subtle film grain to kill banding on gradients */
+.bg-noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Aurora blobs for the hero */
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -4%, 0) scale(1.1);
+  }
+  66% {
+    transform: translate3d(-5%, 5%, 0) scale(0.95);
+  }
+}
+
+.animate-aurora {
+  animation: aurora-drift 22s ease-in-out infinite;
+}
+.animate-aurora-slow {
+  animation: aurora-drift 32s ease-in-out infinite;
+}
+
+/* Vertical pan for the hero grid */
+@keyframes grid-pan {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 -540px;
+  }
+}
+
+.animate-grid-pan {
+  animation: grid-pan 20s linear infinite;
+}
+
+/* Sheen sweep for buttons/badges */
+@keyframes sheen {
+  0% {
+    transform: translateX(-120%);
+  }
+  60%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+/* Soft entrance */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ---- Paper-cut hero motion ---- */
+@keyframes pc-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(var(--pc-amp, 1.5%), var(--pc-ampy, 0.6%), 0);
+  }
+}
+
+@keyframes pc-sway {
+  0%,
+  100% {
+    transform: rotate(var(--pc-swA, -2.5deg));
+  }
+  50% {
+    transform: rotate(var(--pc-swB, 2.5deg));
+  }
+}
+
+@keyframes pc-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pc-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--pc-bob, 6px));
+  }
+}
+
+.pc-drift {
+  animation: pc-drift var(--pc-dur, 26s) ease-in-out infinite;
+}
+.pc-sway {
+  animation: pc-sway var(--pc-dur, 7s) ease-in-out infinite;
+  transform-origin: top center;
+}
+.pc-twinkle {
+  animation: pc-twinkle var(--pc-dur, 4s) ease-in-out infinite;
+}
+.pc-bob {
+  animation: pc-bob var(--pc-dur, 9s) ease-in-out infinite;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-aurora,
+  .animate-aurora-slow,
+  .animate-grid-pan,
+  .animate-rise,
+  .animate-float-3d,
+  .animate-subtle-pulse,
+  .animate-parallax,
+  .animate-shimmer,
+  .pc-drift,
+  .pc-sway,
+  .pc-twinkle,
+  .pc-bob {
+    animation: none !important;
+  }
 }
