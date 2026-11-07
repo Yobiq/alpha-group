@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { Linkedin, Twitter, Globe, ArrowUpRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { getTranslations } from "@/lib/translations"
@@ -22,9 +23,10 @@ export function Footer() {
       { name: t.footer.contact, href: "#" },
     ],
     legal: [
-      { name: t.footer.privacy, href: "#" },
-      { name: t.footer.terms, href: "#" },
-      { name: t.footer.cookies, href: "#" },
+      { name: `GO-TEAM — ${t.footer.terms}`, href: "/goteam/algemene-voorwaarden" },
+      { name: `GO-TEAM — ${t.footer.privacy}`, href: "/goteam/privacy" },
+      { name: `Alphabouw — ${t.footer.terms}`, href: "/alpha-bouw/algemene-voorwaarden" },
+      { name: `Alphabouw — ${t.footer.privacy}`, href: "/alpha-bouw/privacy" },
     ],
   }
 
@@ -35,7 +37,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-lg relative">
+              <div className="logo-chip w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center p-1 relative">
                 <Image
                   src="/alphagroulogo.jpeg"
                   alt="Alpha Group Logo"
@@ -105,12 +107,12 @@ export function Footer() {
             <ul className="space-y-2.5 sm:space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-sm sm:text-base text-muted-foreground hover:text-foreground transition-colors duration-300"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

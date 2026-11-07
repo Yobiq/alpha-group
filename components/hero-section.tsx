@@ -1,135 +1,115 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Play, X } from "lucide-react"
+import { ArrowRight, ArrowDown } from "lucide-react"
+import { PapercutHeroBg } from "@/components/papercut-hero-bg"
 import { useLanguage } from "@/lib/language-context"
 import { getTranslations } from "@/lib/translations"
 
-// Extract video ID from URL: https://youtu.be/W6PN5jVIYok
-const YOUTUBE_VIDEO_ID = "W6PN5jVIYok"
+const companies = ["GO-TEAM", "SWORD BV", "Alphabouw"]
 
 export function HeroSection({ onGetStarted }: { onGetStarted?: () => void }) {
-  const [isVisible, setIsVisible] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [showVideo, setShowVideo] = useState(false)
-  const [isHydrated, setIsHydrated] = useState(false)
-  const [videoError, setVideoError] = useState(false)
-  const [videoLoaded, setVideoLoaded] = useState(false)
-  const heroRef = useRef<HTMLSection>(null)
   const { language } = useLanguage()
   const t = getTranslations(language)
 
-  useEffect(() => {
-    setIsVisible(true)
-    setIsHydrated(true)
-    
-    // Check if YouTube video is available by testing thumbnail
-    const checkVideoAvailability = () => {
-      const img = new Image()
-      img.onload = () => {
-        // Thumbnail exists, video should be available
-        setVideoError(false)
-      }
-      img.onerror = () => {
-        // Thumbnail doesn't exist, video might not be available
-        setVideoError(true)
-      }
-      img.src = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/maxresdefault.jpg`
+  const scrollTo = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) {
+      window.scrollTo({ top: el.offsetTop - 100, behavior: "smooth" })
     }
-    
-    // Check after a delay to allow iframe to load first
-    const timeout = setTimeout(checkVideoAvailability, 3000)
-    return () => clearTimeout(timeout)
-  }, [])
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (heroRef.current) {
-        const rect = heroRef.current.getBoundingClientRect()
-        const x = (e.clientX - rect.left - rect.width / 2) / 50
-        const y = (e.clientY - rect.top - rect.height / 2) / 50
-        setMousePosition({ x, y })
-      }
-    }
-
-    window.addEventListener("mousemove", handleMouseMove)
-    return () => window.removeEventListener("mousemove", handleMouseMove)
-  }, [])
+  }
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* YouTube Video Background - Continuously Playing */}
-      {isHydrated && (
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          {/* Fallback Gradient Background - Always visible as backup */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 z-0">
-            <div className="absolute inset-0 bg-[url('/modern-city-skyline-at-night-with-blue-lights.jpg')] bg-cover bg-center opacity-30" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
-          </div>
-          
-          {/* YouTube Video Background - Overlay on top if available */}
-          {!videoError && (
-            <div className="absolute inset-0 z-10">
-              {/* Skeleton Loading */}
-              {!videoLoaded && (
-                <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-900 animate-pulse z-10" />
-              )}
-              <iframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?si=R6EON2Msf_qkBiSQ&autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playlist=${YOUTUBE_VIDEO_ID}&start=0&playsinline=1`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen={false}
-                className="absolute top-0 left-0 w-full h-full"
-                style={{ 
-                  pointerEvents: 'none',
-                  transform: 'scale(1.1)',
-                  opacity: videoLoaded ? 1 : 0,
-                  transition: 'opacity 0.5s ease-in',
-                }}
-                onLoad={() => setVideoLoaded(true)}
-                loading="eager"
-              />
-            </div>
-          )}
-          
-          {/* Dark Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 z-30" />
-        </div>
-      )}
+    <section className="bg-noise isolate relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      {/* ---- Paper-cut construction skyline (pure SVG/CSS, no video) ---- */}
+      <div aria-hidden className="absolute inset-0 z-0 bg-background">
+        <PapercutHeroBg />
+        {/* Light darkening + bottom fade for text legibility */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_52%,oklch(0.09_0.004_270/0.3)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-background" />
+      </div>
 
-      {/* Text content removed - video background only */}
-
-      {/* Video Modal - Only render after hydration */}
-      {isHydrated && showVideo && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6">
-          <div className="relative w-full max-w-4xl">
-            <button
-              onClick={() => setShowVideo(false)}
-              className="absolute -top-10 sm:-top-12 right-0 sm:right-0 text-white hover:text-gray-300 transition-colors z-10 p-2"
-            >
-              <X className="w-6 h-6 sm:w-8 sm:h-8" />
-            </button>
-            <div className="relative w-full" style={{ aspectRatio: '16 / 9' }}>
-              <iframe
-                width="100%"
-                height="100%"
-                src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}?si=R6EON2Msf_qkBiSQ&autoplay=1`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-                className="rounded-lg"
-              />
-            </div>
+      {/* ---- Content ---- */}
+      <div className="relative z-10 mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8 py-28 sm:py-32 text-center">
+        {/* Eyebrow badge */}
+        <div className="animate-rise mb-6 flex justify-center sm:mb-8">
+          <div className="glass-panel inline-flex items-center gap-2 rounded-full px-3.5 py-1.5">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+            </span>
+            <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground sm:text-xs">
+              {t.hero.badge}
+            </span>
           </div>
         </div>
-      )}
+
+        {/* Headline */}
+        <h1
+          className="animate-rise text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+          style={{ animationDelay: "0.08s" }}
+        >
+          <span className="text-gradient">{t.hero.title1}</span>
+          <br />
+          <span className="text-gradient-accent">{t.hero.title2}</span>
+        </h1>
+
+        {/* Description */}
+        <p
+          className="animate-rise mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:mt-8 sm:text-lg"
+          style={{ animationDelay: "0.16s" }}
+        >
+          {t.hero.description}
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="animate-rise mt-9 flex flex-col items-center justify-center gap-3 sm:mt-11 sm:flex-row sm:gap-4"
+          style={{ animationDelay: "0.24s" }}
+        >
+          <Button
+            size="lg"
+            onClick={() => scrollTo("companies")}
+            className="group h-12 w-full rounded-full bg-foreground px-7 text-sm font-medium text-background shadow-lg transition-all duration-300 hover:bg-foreground/90 hover:shadow-xl sm:w-auto"
+          >
+            {t.hero.explore}
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => (onGetStarted ? onGetStarted() : scrollTo("about"))}
+            className="glass-panel h-12 w-full rounded-full border-0 px-7 text-sm font-medium text-foreground transition-all duration-300 hover:bg-foreground/10 sm:w-auto"
+          >
+            {t.hero.learnMore}
+          </Button>
+        </div>
+
+        {/* Trust strip — the three companies */}
+        <div
+          className="animate-rise mt-14 sm:mt-20"
+          style={{ animationDelay: "0.32s" }}
+        >
+          <div className="hairline mx-auto mb-5 max-w-xs" />
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground/70 sm:gap-x-8 sm:text-sm">
+            {companies.map((name, i) => (
+              <span key={name} className="flex items-center gap-x-5 sm:gap-x-8">
+                {i > 0 && <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />}
+                {name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      <button
+        aria-label="Scroll down"
+        onClick={() => scrollTo("about")}
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 items-center justify-center text-muted-foreground/60 transition-colors hover:text-foreground sm:flex"
+      >
+        <ArrowDown className="h-5 w-5 animate-bounce" />
+      </button>
     </section>
   )
 }

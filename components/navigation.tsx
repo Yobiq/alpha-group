@@ -40,8 +40,20 @@ export function Navigation({ onGetStarted }: { onGetStarted?: () => void } = {})
         top: offsetTop,
         behavior: "smooth",
       })
+    } else {
+      // Section isn't on this page (e.g. a legal sub-page) — go to the home anchor.
+      window.location.href = `/${href}`
     }
     setIsMobileMenuOpen(false)
+  }
+
+  const handleGetStarted = () => {
+    if (onGetStarted) {
+      onGetStarted()
+    } else {
+      // No wizard on this page (e.g. a legal sub-page) — return to home.
+      window.location.href = "/"
+    }
   }
 
   return (
@@ -57,8 +69,8 @@ export function Navigation({ onGetStarted }: { onGetStarted?: () => void } = {})
           }`}
         >
           {/* Logo */}
-          <a href="#" className="flex items-center gap-1.5 sm:gap-2.5 pl-1 sm:pl-2 pr-2 sm:pr-4">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg overflow-hidden flex items-center justify-center relative">
+          <a href="/" className="flex items-center gap-1.5 sm:gap-2.5 pl-1 sm:pl-2 pr-2 sm:pr-4">
+            <div className="logo-chip w-7 h-7 sm:w-8 sm:h-8 rounded-lg overflow-hidden flex items-center justify-center p-0.5 relative">
               <Image
                 src="/alphagroulogo.jpeg"
                 alt="Alpha Group Logo"
@@ -97,7 +109,7 @@ export function Navigation({ onGetStarted }: { onGetStarted?: () => void } = {})
             <Button
               size="sm"
               className="hidden sm:flex bg-foreground text-background hover:bg-foreground/90 rounded-full px-4 h-8 text-xs font-medium gap-1.5"
-              onClick={() => onGetStarted?.()}
+              onClick={handleGetStarted}
             >
               {t.nav.getStarted}
               <ArrowUpRight className="w-3 h-3" />
@@ -135,7 +147,7 @@ export function Navigation({ onGetStarted }: { onGetStarted?: () => void } = {})
             ))}
           </div>
           <div className="mt-3 pt-3 border-t border-border/60">
-            <Button className="w-full bg-foreground text-background hover:bg-foreground/90 rounded-xl h-11 text-sm font-medium gap-2" onClick={() => onGetStarted?.()}>
+            <Button className="w-full bg-foreground text-background hover:bg-foreground/90 rounded-xl h-11 text-sm font-medium gap-2" onClick={handleGetStarted}>
               {t.nav.getStarted}
               <ArrowUpRight className="w-4 h-4" />
             </Button>
